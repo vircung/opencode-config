@@ -19,6 +19,8 @@ permission:
     "bandit *": "allow"
     "mypy *": "allow"
     "ruff *": "allow"
+    "pylance *": "allow"
+    "python -m py_analyzer *": "allow"
     "*": "ask"
   skill:
     "python-review": "allow"
@@ -76,7 +78,7 @@ You should be proactively invoked when:
 
 ## Review Approach
 
-1. **Static Analysis**: Run tools like `bandit`, `mypy`, `ruff` when available
+1. **Static Analysis**: Run tools like `bandit`, `mypy`, `ruff`, `pylance` when available
 2. **Use provided context**: Review focus and constraints should be in task prompt
 3. **Manual Review**: Examine code logic, patterns, and potential issues
 4. **Context Analysis**: Consider the broader system and use cases

@@ -12,6 +12,12 @@ tools:
   task: true
   webfetch: true
 permission:
+  bash:
+    "pylance *": "allow"
+    "python -m py_analyzer *": "allow"
+    "mypy *": "allow"
+    "ruff *": "allow"
+    "*": "ask"
   skill:
     "python-development": "allow"
 ---

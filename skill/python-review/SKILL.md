@@ -11,6 +11,94 @@ metadata:
 
 # Code Review Skill
 
+## Static Analysis Tools Integration
+
+### Pylance Integration
+```python
+# Pylance provides advanced type checking and code analysis
+# Enable in VS Code settings or use via command line
+
+# Type checking with Pylance
+def analyze_with_pylance(file_path: str) -> None:
+    """
+    Run Pylance analysis via command line or check IDE integration
+    """
+    # Command line usage (if available):
+    # pylance --check file_path
+    # python -m py_analyzer file_path
+    
+    # Common Pylance checks:
+    # - Type compatibility issues
+    # - Unused imports and variables
+    # - Missing type annotations
+    # - Unreachable code
+    # - Incorrect function signatures
+    pass
+
+# Pylance configuration for optimal analysis
+# In pyrightconfig.json or pyproject.toml:
+{
+    "typeCheckingMode": "strict",
+    "reportMissingTypeStubs": "warning",
+    "reportUnusedImport": "warning",
+    "reportUnusedVariable": "warning", 
+    "reportDuplicateImport": "error",
+    "reportUnnecessaryCast": "warning",
+    "reportUnnecessaryIsInstance": "warning"
+}
+```
+
+### MyPy Type Checking
+```python
+# mypy configuration for thorough type checking
+# In mypy.ini or pyproject.toml:
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+
+# Common type checking patterns
+def check_type_annotations(value: str | int | None) -> str:
+    # Pylance will catch type mismatches
+    if isinstance(value, str):
+        return value.upper()
+    elif isinstance(value, int):
+        return str(value)
+    elif value is None:
+        return "None"
+    else:
+        # Pylance will flag this as unreachable with proper typing
+        raise TypeError("Unexpected type")
+```
+
+### Tool Integration Workflow
+```bash
+# Comprehensive static analysis workflow
+echo "Running Python static analysis..."
+
+# 1. Type checking with MyPy
+mypy src/ --strict
+
+# 2. Advanced analysis with Pylance (if available)
+pylance --check src/ || python -m py_analyzer src/
+
+# 3. Security analysis with Bandit
+bandit -r src/ -f json
+
+# 4. Code quality with Ruff
+ruff check src/ --fix
+
+# 5. Import sorting
+ruff check --select I src/ --fix
+
+echo "Static analysis complete"
+```
+
 ## Security Analysis Checklist
 
 ### Input Validation Vulnerabilities

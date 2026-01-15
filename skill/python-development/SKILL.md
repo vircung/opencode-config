@@ -48,6 +48,106 @@ T = TypeVar('T')
 class Repository(Generic[T]):
     def __init__(self) -> None:
         self._items: list[T] = []
+```
+
+### Pylance Integration for Development
+```python
+# Pylance provides real-time type checking and IntelliSense
+# Configure for optimal development experience
+
+# Type-safe configuration patterns
+from typing import TypedDict, Literal
+
+class DatabaseConfig(TypedDict):
+    host: str
+    port: int
+    database: str
+    ssl_mode: Literal["disable", "require", "verify-full"]
+
+def connect_database(config: DatabaseConfig) -> None:
+    # Pylance ensures all required fields are present
+    # and validates literal types
+    pass
+
+# Pylance catches type errors at development time
+def process_user_data(user_id: int) -> dict[str, str]:
+    # Pylance will warn about potential None returns
+    user = get_user(user_id)  # type: User | None
+    
+    if user is None:
+        raise ValueError("User not found")
+    
+    # Now Pylance knows user is not None
+    return {
+        "name": user.name,
+        "email": user.email,
+        "status": user.status
+    }
+
+# Advanced type narrowing with Pylance
+def handle_response(response: dict[str, any]) -> str:
+    if "error" in response:
+        # Pylance understands type narrowing
+        error_data = response["error"]
+        if isinstance(error_data, dict) and "message" in error_data:
+            return f"Error: {error_data['message']}"
+        return "Unknown error occurred"
+    
+    if "data" in response:
+        return str(response["data"])
+    
+    return "No data in response"
+```
+
+### Development Workflow with Static Analysis
+```python
+# Development setup for optimal type checking
+# In pyproject.toml:
+[tool.pylsp-mypy]
+enabled = true
+live_mode = true
+strict = true
+
+[tool.ruff]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # Pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "A",    # flake8-builtins
+    "C4",   # flake8-comprehensions
+    "T20",  # flake8-print
+]
+
+# Pre-commit hooks for code quality
+# .pre-commit-config.yaml
+repos:
+  - repo: local
+    hooks:
+      - id: pylance-check
+        name: Pylance type check
+        entry: pylance
+        language: system
+        args: ["--check"]
+        files: \.py$
+      
+      - id: mypy
+        name: MyPy type check
+        entry: mypy
+        language: system
+        args: ["--strict"]
+        files: \.py$
+      
+      - id: ruff
+        name: Ruff linter
+        entry: ruff
+        language: system
+        args: ["check", "--fix"]
+        files: \.py$
+```
     
     def add(self, item: T) -> None:
         self._items.append(item)
