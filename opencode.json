@@ -12,6 +12,9 @@
     },
     "python-reviewer": {
       "model": "github-copilot/gpt-5.2"
+    },
+    "git-commit-helper": {
+      "model": "github-copilot/gpt-5.2-codex"
     }
   }
 }
