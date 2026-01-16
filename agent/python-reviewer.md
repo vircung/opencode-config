@@ -1,6 +1,7 @@
 ---
 description: Python code quality expert for security analysis, performance optimization, and maintainability improvements
 mode: subagent
+model: github-copilot/gpt-5.2
 temperature: 0.1
 tools:
   write: false
@@ -13,15 +14,24 @@ tools:
   webfetch: true
 permission:
   bash:
+    "bandit *": "allow"
+    "bandit": "allow"
+    "find *": "allow"
     "git *": "allow"
     "grep *": "allow"
-    "find *": "allow"
-    "bandit *": "allow"
     "mypy *": "allow"
-    "ruff *": "allow"
+    "mypy": "allow"
+    "pip *": "allow"
+    "pip": "allow"
     "pylance *": "allow"
-    "python -m py_analyzer *": "allow"
-    "*": "ask"
+    "pytest *": "allow"
+    "pytest": "allow"
+    "python *": "allow"
+    "python": "allow"
+    "python3 *": "allow"
+    "python3": "allow"
+    "ruff *": "allow"
+    "ruff": "allow"
   skill:
     "python-review": "allow"
 ---

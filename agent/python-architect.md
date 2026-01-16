@@ -1,6 +1,7 @@
 ---
 description: Python system design and architecture expert for scalable, maintainable code structure
 mode: subagent
+model: github-copilot/gpt-5.2
 temperature: 0.2
 tools:
   write: false
