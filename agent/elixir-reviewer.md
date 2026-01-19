@@ -21,7 +21,6 @@ permission:
     "grep *": "allow"
     "find *": "allow"
     "git *": "allow"
-    "*": "ask"
   skill:
     "elixir-review": "allow"
     "elixir-otp": "allow"

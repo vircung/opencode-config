@@ -4,17 +4,46 @@
     "{env:HOME}/.config/opencode/rules/no-auto-commit.md"
   ],
   "agent": {
+    // ----------------------
+    // ELIXIR ROLES
+    // ----------------------
+    "elixir-architect": {
+      // "model": "github-copilot/gpt-5.2"
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "elixir-developer": {
+      // "model": "github-copilot/gpt-5.2-codex"
+      "model": "github-copilot/grok-code-fast-1"
+    },
+    "elixir-reviewer": {
+      // "model": "github-copilot/gpt-5.2"
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "elixir-phoenix-helper": {
+      // "model": "github-copilot/gpt-5.2"
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    // ----------------------
+    // PYTHON ROLES
+    // ----------------------
     "python-architect": {
-      "model": "github-copilot/gpt-5.2"
+      // "model": "github-copilot/gpt-5.2"
+      "model": "anthropic/claude-sonnet-4-5"
     },
     "python-developer": {
-      "model": "github-copilot/gpt-5.2-codex"
+      // "model": "github-copilot/gpt-5.2-codex"
+      "model": "github-copilot/grok-code-fast-1"
     },
     "python-reviewer": {
-      "model": "github-copilot/gpt-5.2"
+      // "model": "github-copilot/gpt-5.2"
+      "model": "anthropic/claude-sonnet-4-5"
     },
+    // ----------------------
+    // GENERAL ROLES
+    // ----------------------
     "git-commit-helper": {
-      "model": "github-copilot/gpt-5.2-codex"
+      // "model": "github-copilot/gpt-5.2-codex"
+      "model": "anthropic/claude-haiku-4-5"
     }
   }
 }

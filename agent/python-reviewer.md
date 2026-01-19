@@ -1,7 +1,6 @@
 ---
 description: Python code quality expert for security analysis, performance optimization, and maintainability improvements
 mode: subagent
-model: github-copilot/gpt-5.2
 temperature: 0.1
 tools:
   write: false

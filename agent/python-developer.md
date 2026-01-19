@@ -1,7 +1,6 @@
 ---
 description: Python development specialist for implementing features, debugging, and writing production-ready code
 mode: subagent
-model: github-copilot/gpt-5.2-codex
 temperature: 0.3
 tools:
   write: true

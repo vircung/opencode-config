@@ -1,7 +1,6 @@
 ---
 description: Git workflow assistant for generating consistent commit messages from staged changes
 mode: subagent
-model: github-copilot/gpt-5.2-codex
 temperature: 0.2
 tools:
   write: false

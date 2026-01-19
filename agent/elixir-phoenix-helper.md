@@ -21,7 +21,6 @@ permission:
     "mix compile": "allow"
     "grep *": "allow"
     "find *": "allow"
-    "*": "ask"
   skill:
     "elixir-phoenix-framework": "allow"
     "elixir-ecto": "allow"
